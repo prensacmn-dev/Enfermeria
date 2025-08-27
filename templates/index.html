@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoyo para el ingreso - Enfermería - CMN</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--<link rel="stylesheet" href="../static/styles.css">-->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- para las formulas matematicas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+</head>
+<body>
+
+
+
+<!-- menu -->
+<div id="menu" class="menu">
+    <!--<img class="menubutton" src="menu.svg" onclick="toggleDiv()">-->
+    <img class="menubutton" src="{{ url_for('static', filename='menu.svg') }}" onclick="toggleDiv()">
+</div>
+
+<div id="sidebar" class="sidebar">
+    <button id="new-conversation" class="btn-izq btn-izq-normal">Nueva conversación</button>
+    <ul id="conversations-list" class="izq-temas"></ul>
+    <button id="delete-all-button" class="btn-izq btn-izq-elimina">Eliminar Todos los Chats</button>
+    <!--<button id="delete-duplicate-button" class="btn-izq btn-izq-elimina">Eliminar Chats Duplicados</button>-->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("sidebar").style.display = "none";
+    });
+
+    function toggleDiv() {
+        const div = document.getElementById("sidebar");
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+</script>
+<!-- /menu -->
+
+
+<!-- principal -->
+<div id="chat-container">
+
+    <div class="chat-main">
+
+        <!-- encabezado -->
+        <div id="welcome-box" class="welcome-box">
+            <h1>¡Bienvenidos al asistente virtual!</h1>
+            <p>Aquí puede consultar sobre el material de estudio para los exámenes de ingreso para Armas y Especialidades.</p>
+            <p>Materias: Matemática y Competencia Lingüística.</p>
+        </div>
+        <!-- /encabezado -->
+
+        <!-- contenido -->
+        <div id="chat-box" class="chat-box"></div>
+
+        <!-- /contenido -->
+
+        <!-- escritura -->
+        <div class="input-container">
+            <textarea id="user-message" class="formateo" placeholder="Escribe aquí"></textarea>
+            <button id="send-btn" class="botonenviar">
+                <!--<img src="send.png" alt="Enviar" style="width: 24px; height: 24px;">-->
+                <img src="{{ url_for('static', filename='send.png') }}" alt="Enviar" style="width: 24px; height: 24px;">
+            </button>
+        </div>
+        <!-- /escritura -->
+
+    </div>
+
+</div>
+<!-- /principal -->
+
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+<!--<script src="../static/chat.js"></script>-->
+
+</body>
+</html>
