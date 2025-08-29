@@ -54,7 +54,7 @@
 
         
         // Enviar el historial completo de la conversación junto con el nuevo mensaje
-        fetch("https://armas-cq2z.onrender.com/chat", {
+        fetch("https://enfermeria-cur3.onrender.com/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
